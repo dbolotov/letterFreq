@@ -1,14 +1,22 @@
-# ui.R
 
 shinyUI(fluidPage(
-    titlePanel("MyApp"),
+    titlePanel("LetterFreq"),
     
     sidebarLayout(
         sidebarPanel(
-          "sometext"
-        ),
+            helpText("Some help text."),
+            
+            selectInput("var", 
+                        label = "Choose",
+                        choices = list("one","two"),
+                        selected = "one"),
+            
+            textInput("text1","Enter some text here:","Lorem Ipsum"),
+            submitButton("Submit")
+            
+            ),
         
-        #mainPanel(plotOutput("plot"))
-        mainPanel("hey.")
+        
+        mainPanel(verbatimTextOutput("text"))
     )
 ))

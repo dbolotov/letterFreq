@@ -14,6 +14,8 @@ library(ggplot2)
 #   classics: http://www.data-compression.com/english.html
 #   most popular english first names
 
+#display first 100-500 chars of processed text
+
 #have option to sort plot by descending freq
 
 str <- "This is an example input <> %6 alkdasf;i420asd ' '';'l jk \n"

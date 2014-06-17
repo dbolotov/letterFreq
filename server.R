@@ -1,12 +1,17 @@
-# server.R
+#server.R
 
-# library(maps)
-# counties <- readRDS("data/counties.rds")
-# source("helpers.R")
+library(plyr)
+library(ggplot2)
+
+str <- "Lorem Ipsum is simply dummy text"
 
 
-shinyServer(
-    function(input, output) {
-
-    }
-)
+shinyServer(function(input, output) {
+    
+    output$text <- renderText({
+        paste("You wrote:", input$text1)
+    })
+    
+    
+    
+})
