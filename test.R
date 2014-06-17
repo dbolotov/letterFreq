@@ -67,6 +67,9 @@ ggplot(data=alphabet_filled, aes(x=seq(1:26),y=rfreqs)) + geom_bar(stat="identit
     scale_x_discrete(breaks = c(1:26), labels=letters) + 
     geom_bar(data=alphabet_filled2,stat="identity",color="salmon",alpha = 0)
 
+
+
+
 #two-hist plot with one df
 new_df <- as.data.frame(cbind(alphabet_filled,alphabet_filled2))
 names(new_df) <- c("text","ref")

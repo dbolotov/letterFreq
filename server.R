@@ -15,9 +15,9 @@ shinyServer(function(input, output) {
     })
 
     output$freqplot <- renderPlot({
-        ref <- switch(input$ref,
-                       "English classics" = classics,
-                       "Oxford dictionary" = oxford)
+        ref <- switch(input$ref,"English classics" = classics,
+                      "Oxford dictionary" = oxford,
+                      "None" = "None")
         
         fplot(input$text1,ref)
     })
