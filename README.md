@@ -6,7 +6,6 @@ A Shiny app that plots relative English frequencies given user input.
 ##TODO
 
 - experiment with different layouts and colors
-- add a "None" option to reference freqs
 - clean up plot axis and legend
 - increase size of input text box
 - write description and guide

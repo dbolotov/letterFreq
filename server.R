@@ -5,9 +5,6 @@ library(ggplot2)
 source("helper_functions.R")
 source("data/example_frequencies.R")
 
-str <- "Lorem Ipsum is si776mply dummy text ^^ 0-2w/./ ."
-
-
 shinyServer(function(input, output) {
     
     output$text <- renderText({
