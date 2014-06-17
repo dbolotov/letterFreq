@@ -45,7 +45,7 @@ sanitize_fill <- function(str) {
 
 
 
-fplot <- function(){
+fplot <- function(str){
     
     rfreqs <- sanitize(str)
     alphabet_filled <- fill_freqs(rfreqs)

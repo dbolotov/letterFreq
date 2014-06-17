@@ -7,7 +7,7 @@ shinyUI(fluidPage(
             helpText("Some help text."),
             
             selectInput("var", 
-                        label = "Choose",
+                        label = "Reference Frequencies",
                         choices = list("one","two"),
                         selected = "one"),
             

@@ -15,7 +15,7 @@ shinyServer(function(input, output) {
 
     output$freqplot <- renderPlot({
         
-        fplot()
+        fplot(input$text1)
     })
     
     
