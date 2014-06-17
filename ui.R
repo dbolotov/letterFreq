@@ -17,6 +17,8 @@ shinyUI(fluidPage(
             ),
         
         
-        mainPanel(textOutput("text"))
-    )
+        mainPanel(textOutput("text"),plotOutput("freqplot"))
+#         mainPanel(textOutput("text"))
+        
+        )
 ))

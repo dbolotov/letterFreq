@@ -2,17 +2,21 @@
 
 library(plyr)
 library(ggplot2)
-source("helpers.R")
+source("helper_functions.R")
 
-str <- "Lorem Ipsum is simply dummy text"
+str <- "Lorem Ipsum is si776mply dummy text ^^ 0-2w/./ ."
 
 
 shinyServer(function(input, output) {
     
     output$text <- renderText({
-        paste("You wrote:", sanitize(input$text1))
+        paste("Original text:", input$text1)
     })
-    
+
+    output$freqplot <- renderPlot({
+        
+        fplot()
+    })
     
     
 })
