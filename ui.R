@@ -17,6 +17,6 @@ shinyUI(fluidPage(
             ),
         
         
-        mainPanel(verbatimTextOutput("text"))
+        mainPanel(textOutput("text"))
     )
 ))
