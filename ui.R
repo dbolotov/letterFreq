@@ -13,16 +13,39 @@ shinyUI(fluidPage(
             ),
             
             wellPanel(
-            textInput("text1","Enter some text here:","Lorem Ipsum"),
-            selectInput("ref", 
-                        label = "Reference Distribution:",
-                        choices = list("English classics","Oxford dictionary","None"),
-                        selected = "None"),
-            
+            textInput("text1",HTML("<b>ENTER SOME TEXT</b>"),"Lorem Ipsum"),
+#             selectInput("ref", 
+#                         label = "Reference Distribution:",
+#                         choices = list("English classics","Oxford dictionary","None"),
+#                         selected = "None"),
+#             
 
-            submitButton("Submit")
+            radioButtons("ref", 
+            label = HTML("<b>REFERENCE DISTRIBUTION</b>"),
+            choices = list("English classics","Oxford dictionary","None"),
+            selected = "None"),
+
+
+
+            submitButton("Plot")
             
-            )),
+            ),
+
+            wellPanel(
+                helpText(HTML("<b>REFERENCE DATA SOURCES</b>")),
+                helpText(HTML("<a href='http://www.data-compression.com/english.html'>English classics</a>")),
+                helpText(HTML("<a href='http://www.oxforddictionaries.com/us/words/what-is-the-frequency-of-the-letters-of-the-alphabet-in-english'>Oxford dictionary</a>"))
+                
+                ),
+
+            wellPanel(
+                helpText(HTML("<b>OTHER INFO</b>")),
+                helpText(HTML("<a href='https://github.com/dbolotov/letterFreq'>GitHub</a>"))
+                )
+
+
+
+            ),
         
         
 #         mainPanel(textOutput("text"),plotOutput("freqplot"))
