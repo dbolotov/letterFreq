@@ -14,6 +14,8 @@ library(ggplot2)
 #   classics: http://www.data-compression.com/english.html
 #   most popular english first names
 
+#display source of reference freq data
+
 #display first 100-500 chars of processed text
 
 #have option to sort plot by descending freq
@@ -42,6 +44,11 @@ alphabet_filled <- as.data.frame(alphabet_filled)
 names(alphabet_filled) <- "rfreqs"
 
 
+
+
+
+
+
 # 
 # plot(rep(0.0,26),xaxt="n",col=0)
 # points(alphabet_filled,col=2)
@@ -55,6 +62,15 @@ ggplot(data=alphabet_filled, aes(x=seq(1:26),y=rfreqs)) + geom_bar(stat="identit
 
 
 
+
+#two-hist plot
+ggplot(data=alphabet_filled, aes(x=seq(1:26),y=rfreqs)) + geom_bar(stat="identity",aes(fill=rfreqs)) + 
+    scale_x_discrete(breaks = c(1:26), labels=letters) + 
+    geom_bar(data=alphabet_filled2,stat="identity",color="salmon",alpha = 0)
+
+#two-hist plot with one df
+new_df <- as.data.frame(cbind(alphabet_filled,alphabet_filled2))
+names(new_df) <- c("text","ref")
 
 
 

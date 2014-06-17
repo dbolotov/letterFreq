@@ -6,10 +6,10 @@ shinyUI(fluidPage(
         sidebarPanel(
             helpText("Some help text."),
             
-            selectInput("var", 
+            selectInput("ref", 
                         label = "Reference Frequencies",
-                        choices = list("one","two"),
-                        selected = "one"),
+                        choices = list("English classics","Oxford dictionary"),
+                        selected = "English classics"),
             
             textInput("text1","Enter some text here:","Lorem Ipsum"),
             submitButton("Submit")
