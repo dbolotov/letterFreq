@@ -1,4 +1,4 @@
-setwd("E:/documents/progr/letter_counter")
+setwd("E:/documents/progr/letterFreq")
 
 library(plyr)
 library(ggplot2)
