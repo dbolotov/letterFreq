@@ -3,8 +3,8 @@
 library(ggplot2)
 
 sanitize <- function(str){
-    #given raw string input
-    #remove non-alpha characters, convert to lower, return relative frequencies
+    #input: raw text string
+    #output: relative frequencies
     
     newstr <- gsub("[^[:alpha:]]", "", str)
     newstr <- tolower(newstr)
@@ -16,8 +16,8 @@ sanitize <- function(str){
 }
 
 fill_freqs <- function(rfreqs) {
-    #given relative frequencies
-    #return array with all english letters
+    #input: relative frequencies (not necessarily for all 26 letters)
+    #output: relative frequencies for all 26 letters
     
     
     #make 0-count vector
@@ -38,7 +38,8 @@ fill_freqs <- function(rfreqs) {
 
 
 fplot <- function(str,ref){
-    
+    #input: raw text, array with reference frequencies
+    #output: plot
     rfreqs <- sanitize(str)
     alphabet_filled <- fill_freqs(rfreqs)
     

@@ -12,7 +12,6 @@ library(ggplot2)
 #   oxford dictionary: http://www.oxforddictionaries.com/us/words/what-is-the-frequency-of-the-letters-of-the-alphabet-in-english
 #   twitter users or something?
 #   classics: http://www.data-compression.com/english.html
-#   most popular english first names
 
 #display source of reference freq data
 
@@ -34,7 +33,7 @@ rfreqs <- freqs / sum(freqs)
 #make 0-count vector
 alphabet <- rep(1,26)
 names(alphabet) <- letters
-
+`
 alphabet_filled <- sapply(1:26, function(x) {rfreqs[names(alphabet)[x]]})
 
 alphabet_filled[is.na(alphabet_filled)] <- 0
