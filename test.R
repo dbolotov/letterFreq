@@ -1,5 +1,6 @@
 setwd("E:/documents/progr/letterFreq")
 
+library(shiny)
 library(plyr)
 library(ggplot2)
 

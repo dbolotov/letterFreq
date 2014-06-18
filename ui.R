@@ -1,6 +1,7 @@
 #ui.R
 
 shinyUI(fluidPage(
+    theme="bootstrap.css",
     titlePanel("LetterFreq!"),
     
     sidebarLayout(

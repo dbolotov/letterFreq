@@ -48,8 +48,10 @@ fplot <- function(str,ref){
         #two-hist plot
         p <- ggplot(data=alphabet_filled, aes(x=seq(1:26),y=rfreqs)) + geom_bar(stat="identity",aes(fill=rfreqs)) + 
             scale_x_discrete(breaks = c(1:26), labels=letters) + 
-            geom_bar(data=alphabet_filled_ref,stat="identity",color="salmon",alpha = 0) +
+            geom_bar(data=alphabet_filled_ref,stat="identity",color="salmon",alpha = 0) +  
             labs(title="Relative Letter Frequency", x = "letter", y="relative frequency")
+
+
         
     } else {
         #one-hist plot
