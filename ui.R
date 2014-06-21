@@ -32,8 +32,7 @@ shinyUI(fluidPage(
                 ),
 
             wellPanel(
-                helpText(HTML("<b>OTHER INFO</b>")),
-                helpText(HTML("<a href='https://github.com/dbolotov/letterFreq'>GitHub</a>"))
+                helpText(HTML("<a href='https://github.com/dbolotov/letterFreq'>Github source</a>"))
                 )
             ),
         
