@@ -1,6 +1,12 @@
-## letterFreq
+### letterFreq
 
-A Shiny app that plots relative English frequencies given user input.
+A Shiny app that plots relative English frequencies of the input text.
+
+
+
+### Links
+
+(bootstrap theme)[http://bootswatch.com/2/united/]
 
 
 ##TODO
