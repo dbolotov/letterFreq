@@ -14,10 +14,10 @@ sanitize <- function(str){
     freqs <- summary(factor(chars))
     rfreqs <- freqs / sum(freqs)
     
-    return(rfreqs)
+    return(freqs)
 }
 
-fill_freqs <- function(rfreqs) {
+fill_freqs <- function(freqs) {
     #input: relative frequencies (not necessarily for all 26 letters)
     #output: relative frequencies for all 26 letters
     
@@ -25,7 +25,7 @@ fill_freqs <- function(rfreqs) {
     alphabet <- rep(1,26)
     names(alphabet) <- letters
     
-    alphabet_filled <- sapply(1:26, function(x) {rfreqs[names(alphabet)[x]]})
+    alphabet_filled <- sapply(1:26, function(x) {freqs[names(alphabet)[x]]})
     
     alphabet_filled[is.na(alphabet_filled)] <- 0
     
@@ -41,26 +41,34 @@ fill_freqs <- function(rfreqs) {
 fplot <- function(str,ref){
     #input: raw text, array with reference frequencies
     #output: plot
-    rfreqs <- sanitize(str)
-    alphabet_filled <- fill_freqs(rfreqs)
+    freqs <- sanitize(str)
+    rfreqs <- freqs/sum(freqs)
+    alphabet_filled_freqs <- fill_freqs(freqs)
+    alphabet_filled_rfreqs <- fill_freqs(rfreqs)
     
+    alphabet_filled_new <- merge(alphabet_filled_freqs,alphabet_filled_rfreqs,by=0,all=TRUE)
+    rownames(alphabet_filled_new) <- rownames(alphabet_filled_freqs)
+    colnames(alphabet_filled_new) <- c("Row.names", "freqs", "rfreqs")
+
     if (ref[1] != "None") {
         alphabet_filled_ref <- fill_freqs(ref)
     
         #two-hist plot
-        p <- ggplot(data=alphabet_filled, aes(x=seq(1:26),y=rfreqs)) + geom_bar(stat="identity",aes(fill=rfreqs)) + 
+        p <- ggplot(data=alphabet_filled_new, aes(x=seq(1:26),y=rfreqs)) + geom_bar(stat="identity",aes(fill=rfreqs)) + 
             scale_x_discrete(breaks = c(1:26), labels=letters) + 
             geom_bar(data=alphabet_filled_ref,stat="identity",color="salmon",alpha = 0) +
             theme(legend.position="none") +
+            geom_text(aes(label=freqs),hjust=0,vjust=-0.5,size=4) + 
             labs(title="Relative Letter Frequency", x = "letter", y="relative frequency")
 
 
         
     } else {
         #one-hist plot
-        p <- ggplot(data=alphabet_filled, aes(x=seq(1:26),y=rfreqs)) + geom_bar(stat="identity",aes(fill=rfreqs)) + 
+        p <- ggplot(data=alphabet_filled_new, aes(x=seq(1:26),y=rfreqs)) + geom_bar(stat="identity",aes(fill=rfreqs)) + 
             scale_x_discrete(breaks = c(1:26), labels=letters) +
             theme(legend.position="none") +
+            geom_text(aes(label=freqs,size=10,color=rfreqs),hjust=0,vjust=-0.5) + 
             labs(title="Relative Letter Frequency", x = "letter", y="relative frequency")
     }
         

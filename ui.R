@@ -9,8 +9,8 @@ shinyUI(fluidPage(
             wellPanel(
                 helpText(HTML("<b>ABOUT</b>")),
                 helpText(HTML("Plot the distribution of relative English letter frequencies
-                         of the input text, and optionally show a reference distribution 
-                         from one of several sources.<br><br>
+                         of the input text, and optionally show a reference distribution.
+                        <br><br>
 
                          Input can include any characters, but is truncated to 30,000 chars total, and 
                          is sanitized to keep only the English letters.

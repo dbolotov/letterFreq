@@ -1,10 +1,10 @@
 ### letterFreq
 
-An app created with RStudio and Shiny.
+An app created with RStudio and Shiny for Coursera's Data Products course.
 
 Given some input text, strips all but the alpha english characters, and plots their relative frequencies.
 
-[letterFreq on shinyapps.io](https://dontpanic.shinyapps.io/letterFreq/)
+[letterFreq on shinyapps.io](dontpanic.shinyapps.io/letterFreq/)
 
 
 ### TODO
