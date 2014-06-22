@@ -13,7 +13,7 @@ shinyServer(function(input, output) {
 
     output$freqplot <- renderPlot({
         ref <- switch(input$ref,"English literature classics" = classics,
-                      "Oxford dictionary (main entries)" = oxford,
+                      "Oxford dictionary" = oxford,
                       "None" = "None")
         
         fplot(input$text1,ref)

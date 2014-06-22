@@ -12,7 +12,8 @@ shinyUI(fluidPage(
                          of the input text, and optionally show a reference distribution 
                          from one of several sources.<br><br>
 
-                         Text input (which can include any characters) is sanitized to keep only English letters.
+                         Input can include any characters, but is truncated to 50,000 chars total, and 
+                         is sanitized to keep only the English letters.
                          Number of occurences for each letter is divided by the total letter count to obtain
                          relative frequencies. Results are shown as a bar plot.
                         <br><br>
@@ -21,10 +22,10 @@ shinyUI(fluidPage(
             ),
             
             wellPanel(
-            textInput("text1",HTML("<b>ENTER SOME TEXT</b>"),"Lorem Ipsum"),
+            textInput("text1",HTML("<b>ENTER SOME TEXT</b>"),"LetterFreq!"),
             radioButtons("ref", 
             label = HTML("<b>REFERENCE DISTRIBUTION</b>"),
-            choices = list("English literature classics","Oxford dictionary (main entries)","None"),
+            choices = list("English literature classics","Oxford dictionary","None"),
             selected = "None"),
 
             submitButton("Plot")
@@ -33,7 +34,7 @@ shinyUI(fluidPage(
 
             wellPanel(
                 helpText(HTML("<b>REFERENCE DATA SOURCES</b>")),
-                helpText(HTML("<a href='http://www.data-compression.com/english.html'>English classics</a>")),
+                helpText(HTML("<a href='http://www.data-compression.com/english.html'>English literature classics</a>")),
                 helpText(HTML("<a href='http://www.oxforddictionaries.com/us/words/what-is-the-frequency-of-the-letters-of-the-alphabet-in-english'>Oxford dictionary</a>"))
                 
                 ),
