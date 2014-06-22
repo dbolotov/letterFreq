@@ -18,8 +18,8 @@ sanitize <- function(str){
 }
 
 fill_freqs <- function(freqs) {
-    #input: relative frequencies (not necessarily for all 26 letters)
-    #output: relative frequencies for all 26 letters
+    #input: frequencies (not necessarily for all 26 letters)
+    #output: frequencies for all 26 letters
     
     #make 0-count vector
     alphabet <- rep(1,26)
@@ -43,6 +43,7 @@ fplot <- function(str,ref){
     #output: plot
     freqs <- sanitize(str)
     rfreqs <- freqs/sum(freqs)
+    
     alphabet_filled_freqs <- fill_freqs(freqs)
     alphabet_filled_rfreqs <- fill_freqs(rfreqs)
     
@@ -58,17 +59,15 @@ fplot <- function(str,ref){
             scale_x_discrete(breaks = c(1:26), labels=letters) + 
             geom_bar(data=alphabet_filled_ref,stat="identity",color="salmon",alpha = 0) +
             theme(legend.position="none") +
-            geom_text(aes(label=freqs),hjust=0,vjust=-0.5,size=4) + 
+            geom_text(aes(label=freqs,color=freqs),size=3,hjust=0,vjust=-0.5) + 
             labs(title="Relative Letter Frequency", x = "letter", y="relative frequency")
-
-
         
     } else {
         #one-hist plot
         p <- ggplot(data=alphabet_filled_new, aes(x=seq(1:26),y=rfreqs)) + geom_bar(stat="identity",aes(fill=rfreqs)) + 
             scale_x_discrete(breaks = c(1:26), labels=letters) +
             theme(legend.position="none") +
-            geom_text(aes(label=freqs,size=10,color=rfreqs),hjust=0,vjust=-0.5) + 
+            geom_text(aes(label=freqs,color=freqs),size=3,hjust=0,vjust=-0.5) + 
             labs(title="Relative Letter Frequency", x = "letter", y="relative frequency")
     }
         
