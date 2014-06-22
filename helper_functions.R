@@ -6,7 +6,7 @@ sanitize <- function(str){
     #input: raw text string
     #output: relative frequencies
     
-    str <- substr(str,1,50000)
+    str <- substr(str,1,30000)
     
     newstr <- gsub("[^[:alpha:]]", "", str)
     newstr <- tolower(newstr)

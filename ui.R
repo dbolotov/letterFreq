@@ -12,7 +12,7 @@ shinyUI(fluidPage(
                          of the input text, and optionally show a reference distribution 
                          from one of several sources.<br><br>
 
-                         Input can include any characters, but is truncated to 50,000 chars total, and 
+                         Input can include any characters, but is truncated to 30,000 chars total, and 
                          is sanitized to keep only the English letters.
                          Number of occurences for each letter is divided by the total letter count to obtain
                          relative frequencies. Results are shown as a bar plot.
